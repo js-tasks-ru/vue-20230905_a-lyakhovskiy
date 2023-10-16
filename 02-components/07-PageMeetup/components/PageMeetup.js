@@ -15,7 +15,7 @@ export default defineComponent({
 
   data() {
     return {
-      meetup: Object,
+      meetup: null,
       loading: false,
       error: false
     };
@@ -68,7 +68,7 @@ export default defineComponent({
   template: `
     <div class="page-meetup">
     <!-- meetup view -->
-    <MeetupView v-if="meetup.id && !error && !loading" :meetup="meetup"/>
+    <MeetupView v-if="meetup && !error && !loading" :meetup="meetup"/>
     <UiContainer v-if="loading">
       <UiAlert>Загрузка...</UiAlert>
     </UiContainer>
