@@ -11,7 +11,7 @@ export default {
 
   data() {
     return {
-      backgroundURL: "var(--default-cover)",
+      backgroundURL: this.image ? "url('" + this.image + "')" : "var(--default-cover)",
     }
   }
   ,
@@ -25,25 +25,6 @@ export default {
     }
   },
 
-  watch: {
-    image: {
-      handler() {
-        this.getImage()
-      }
-    },
-  },
-
-  mounted() {
-    this.getImage()
-  },
-
-  methods: {
-    getImage() {
-      if (this.image) {
-        this.backgroundURL = "url('" + this.image + "')"
-      }
-    }
-  }
 };
 </script>
 
