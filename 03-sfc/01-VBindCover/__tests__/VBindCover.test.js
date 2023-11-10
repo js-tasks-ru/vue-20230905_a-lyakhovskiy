@@ -1,15 +1,16 @@
-import { shallowMount } from '@vue/test-utils';
-const { default: MeetupCover } = require(global.getSolutionPath('components/MeetupCover'));
+import {shallowMount} from '@vue/test-utils';
+
+const {default: MeetupCover} = require(global.getSolutionPath('components/MeetupCover'));
 import meetups from './__fixtures__/meetups.json';
 import fs from 'fs/promises';
 import path from 'path';
 
-const { title, image } = meetups[1];
+const {title, image} = meetups[1];
 
 describe('sfc/VBindCover', () => {
   describe('MeetupCover', () => {
     it('MeetupCover должен выводить название митапа в соответствии с параметром title', () => {
-      const wrapper = shallowMount(MeetupCover, { props: { title } });
+      const wrapper = shallowMount(MeetupCover, {props: {title}});
       expect(wrapper.text()).toContain(title);
     });
 
@@ -19,7 +20,7 @@ describe('sfc/VBindCover', () => {
     });
 
     it('MeetupCover не должен иметь атрибута style при наличии изображения в параметре image', () => {
-      const wrapper = shallowMount(MeetupCover, { props: { image } });
+      const wrapper = shallowMount(MeetupCover, {props: {image}});
       expect(wrapper.find('.meetup-cover').attributes('style')).toBeFalsy();
     });
 
